@@ -1,5 +1,5 @@
 export default function QueryProcessor(query: string): string {
-    if (query.includes("TODO2")) {
+    if (query.includes("power")) {
         var pattern = /\d+/g;
         var numbers = query.match(pattern);
         if(numbers==null) numbers = ["1","2"];
