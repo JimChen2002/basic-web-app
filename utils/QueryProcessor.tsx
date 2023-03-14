@@ -1,4 +1,16 @@
 export default function QueryProcessor(query: string): string {
+    if (query.includes("minus")) {
+        var pattern = /\d+/g;
+        var numbers = query.match(pattern);
+        if(numbers==null) numbers = ["1","2"];
+        return (Number(numbers[0])-Number(numbers[1])).toString();
+    }
+    if (query.includes("TODO2")) {
+        var pattern = /\d+/g;
+        var numbers = query.match(pattern);
+        if(numbers==null) numbers = ["1","2"];
+        return (Number(numbers[0])*Number(numbers[1])).toString();
+    }
     if (query.includes("multiplied")) {
         var pattern = /\d+/g;
         var numbers = query.match(pattern);
