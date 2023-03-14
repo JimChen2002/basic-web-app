@@ -1,4 +1,28 @@
 export default function QueryProcessor(query: string): string {
+    function is_prime(x:number):boolean{
+        for (let i=2;i<=Math.floor(Math.sqrt(x))+2;i++){
+            if(x%i==0) return false;
+        }
+        return true;
+    }
+    if (query.includes("Which of the following numbers are primes")) {
+        var pattern = /\d+/g;
+        var numbers = query.match(pattern);
+        if(numbers==null) numbers = ["1","2","3"];
+        var len = numbers.length;
+        for (let i=0;i<len;i++){
+            if(is_prime(Number(numbers[i]))){
+                return numbers[i].toString();
+            }
+        }
+        return "None";
+    }
+    if (query.includes("TODO2")) {
+        var pattern = /\d+/g;
+        var numbers = query.match(pattern);
+        if(numbers==null) numbers = ["1","2"];
+        return (Math.floor(Number(numbers[0])/Number(numbers[1]))).toString();
+    }
     if (query.includes("minus")) {
         var pattern = /\d+/g;
         var numbers = query.match(pattern);
