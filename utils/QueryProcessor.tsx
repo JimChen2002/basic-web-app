@@ -1,6 +1,8 @@
 export default function QueryProcessor(query: string): string {
-    if (query === "What is 12 plus 77?") {
-        return "89";
+    if (query.includes("Which of the following numbers is the largest")) {
+        var numbers = query.match(/\d+/);
+        if(numbers==null) numbers = ["1","2","3"];
+        return (Number(numbers[0])+Number(numbers[1])+Number(numbers[2])).toString();
     }
     if (query.includes("plus")) {
         var numbers = query.match(/\d+/);
