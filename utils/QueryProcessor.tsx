@@ -69,8 +69,13 @@ export default function QueryProcessor(query: string): string {
     if (query.includes("plus")) {
         var pattern = /\d+/g;
         var numbers = query.match(pattern);
-        if(numbers==null) numbers = ["1","2"];
-        return (Number(numbers[0])+Number(numbers[1])).toString();
+        if(numbers==null) numbers = ["1","2","3"];
+        var len = numbers.length;
+        var res1 = 0;
+        for (let i=0;i<len;i++){
+            res1 += (Number(numbers[i]));
+        }
+        return res1.toString();
     }
     if (query === "What is your name?") {
         return "Great";
