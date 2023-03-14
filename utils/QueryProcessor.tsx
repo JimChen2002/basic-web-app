@@ -3,7 +3,7 @@ export default function QueryProcessor(query: string): string {
         var pattern = /\d+/g;
         var numbers = query.match(pattern);
         if(numbers==null) numbers = ["1","2"];
-        return (Math.floor(Number(numbers[0])/Number(numbers[1]))).toString();
+        return (Math.pow(Number(numbers[0]),Number(numbers[1]))).toString();
     }
     function is_prime(x:number):boolean{
         for (let i=2;i<=Math.floor(Math.sqrt(x))+2;i++){
