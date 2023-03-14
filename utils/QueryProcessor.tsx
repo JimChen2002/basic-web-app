@@ -39,8 +39,13 @@ export default function QueryProcessor(query: string): string {
     if (query.includes("multiplied")) {
         var pattern = /\d+/g;
         var numbers = query.match(pattern);
-        if(numbers==null) numbers = ["1","2"];
-        return (Number(numbers[0])*Number(numbers[1])).toString();
+        if(numbers==null) numbers = ["1","2","3"];
+        var len = numbers.length;
+        var res1 = 0;
+        for (let i=0;i<len;i++){
+            res1 *= (Number(numbers[i]));
+        }
+        return res1.toString();
     }
     function is_square(x:number):boolean{
         return x>0 && Math.sqrt(x) % 1 == 0;
