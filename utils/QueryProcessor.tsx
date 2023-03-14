@@ -5,11 +5,11 @@ export default function QueryProcessor(query: string): string {
         if(numbers==null) numbers = ["1","2"];
         return (Number(numbers[0])-Number(numbers[1])).toString();
     }
-    if (query.includes("TODO2")) {
+    if (query.includes("divided")) {
         var pattern = /\d+/g;
         var numbers = query.match(pattern);
         if(numbers==null) numbers = ["1","2"];
-        return (Number(numbers[0])*Number(numbers[1])).toString();
+        return (Math.floor(Number(numbers[0])/Number(numbers[1]))).toString();
     }
     if (query.includes("multiplied")) {
         var pattern = /\d+/g;
