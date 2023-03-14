@@ -10,7 +10,7 @@ export default function QueryProcessor(query: string): string {
         return res2.toString();
     }
     function is_prime(x:number):boolean{
-        for (let i=2;i<=Math.floor(Math.sqrt(x))+2;i++){
+        for (let i=2;i<=Math.floor(Math.sqrt(x))+2 && i<x;i++){
             if(x%i==0) return false;
         }
         return true;
