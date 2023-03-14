@@ -5,11 +5,23 @@ export default function QueryProcessor(query: string): string {
         if(numbers==null) numbers = ["1","2"];
         return (Number(numbers[0])*Number(numbers[1])).toString();
     }
+    function is_square(x:number):boolean{
+        return x>0 && Math.sqrt(x) % 1 == 0;
+    }
+    function is_cube(x:number):boolean{
+        return x>0 && Math.cbrt(x) % 1 == 0;
+    }
     if (query.includes("Which of the following numbers is both a square and a cube")) {
         var pattern = /\d+/g;
         var numbers = query.match(pattern);
         if(numbers==null) numbers = ["1","2","3"];
-        return (Math.max(Number(numbers[0]),Number(numbers[1]),Number(numbers[2]))).toString();
+        var len = numbers.length;
+        for (let i=0;i<len;i++){
+            if(is_square(Number(numbers[i]))&&is_cube(Number(numbers[i]))){
+                return numbers[i].toString();
+            }
+        }
+        return "None";
     }
     if (query.includes("Which of the following numbers is the largest")) {
         var pattern = /\d+/g;
